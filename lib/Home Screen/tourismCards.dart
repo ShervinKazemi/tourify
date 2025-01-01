@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:tourify/Detail%20Screen/detailScreen.dart';
 import 'Data.dart';
 
 class TourismCards extends StatelessWidget {
@@ -31,19 +32,21 @@ class TourismCards extends StatelessWidget {
               ),
               child: InkWell(
                 onTap: () {
-                  // Handle tap
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DetailScreen(),
+                      settings: RouteSettings(arguments: fakeData[index])));
                 },
                 borderRadius: BorderRadius.circular(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Hero(
-                      tag: "destination-tag-${fakeData[index].name}",
-                      child: Stack(
-                        children: [
-                          ClipRRect(
+                    Stack(
+                      children: [
+                        Hero(
+                          tag: "destination-tag-${fakeData[index].name}",
+                          child: ClipRRect(
                             borderRadius: const BorderRadius.vertical(
-                              top: Radius.circular(15),
+                              top: Radius.circular(16),
                             ),
                             child: CachedNetworkImage(
                               key: UniqueKey(),
@@ -54,26 +57,26 @@ class TourismCards extends StatelessWidget {
                               maxHeightDiskCache: 1900,
                             ),
                           ),
-                          Positioned(
-                            bottom: 0,
-                            left: 0,
-                            right: 0,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Colors.black.withOpacity(0.7),
-                                    Colors.transparent,
-                                  ],
-                                  begin: Alignment.bottomCenter,
-                                  end: Alignment.topCenter,
-                                ),
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Colors.black.withOpacity(0.7),
+                                  Colors.transparent,
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
                               ),
-                              height: 80,
                             ),
+                            height: 80,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                     Padding(
                       padding: const EdgeInsets.all(16),
