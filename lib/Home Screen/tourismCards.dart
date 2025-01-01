@@ -1,7 +1,7 @@
+import 'package:Tourify/Detail%20Screen/detailScreen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:tourify/Detail%20Screen/detailScreen.dart';
 import 'Data.dart';
 
 class TourismCards extends StatelessWidget {

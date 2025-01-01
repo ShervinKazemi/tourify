@@ -1,8 +1,8 @@
+import 'package:Tourify/Home%20Screen/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tourify/Home%20Screen/homeScreen.dart';
-import 'util.dart';
-import 'theme.dart';
+import 'theme/util.dart';
+import 'theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
