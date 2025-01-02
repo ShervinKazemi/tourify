@@ -8,25 +8,34 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = constraints.maxWidth;
+        final screenHeight = constraints.maxHeight;
 
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CustomAppBar(screenWidth: screenWidth, screenHeight: screenHeight),
-            const Gap(16),
-            Expanded(
-              child: TourismCards(
-                screenWidth: screenWidth,
-                screenHeight: screenHeight,
-              ),
+        return Scaffold(
+          body: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                CustomAppBar(
+                  screenWidth: screenWidth,
+                  screenHeight: screenHeight,
+                ),
+                const Gap(16),
+                Expanded(
+                  child: RepaintBoundary(
+                    child: TourismCards(
+                      screenWidth: screenWidth,
+                      screenHeight: screenHeight,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }

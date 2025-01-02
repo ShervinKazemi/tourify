@@ -5,7 +5,7 @@
     <application
         android:enableOnBackInvokedCallback="true"
         android:usesCleartextTraffic="true"
-        android:label="tourify"
+        android:label="Tourify"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
